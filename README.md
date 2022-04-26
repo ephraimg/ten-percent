@@ -1,10 +1,18 @@
+Run the application on port 8099:
+
+`mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=8099`
+
+Or to run it on the default port that's set in `application.properties`:
+
+`mvn spring-boot:run`
+
 Build a Docker image:
 
 `docker build -t ephraimglick/ten-percent .`
 
-Run the application on port 8080:
+Run the dockerized application at port 8099:
 
-`docker run -p 8080:8080 ephraimglick/ten-percent`
+`docker run -p 8099:8080 ephraimglick/ten-percent`
 
 Connect to the EC2 instance:
 
