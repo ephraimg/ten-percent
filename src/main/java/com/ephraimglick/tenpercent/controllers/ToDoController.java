@@ -2,7 +2,9 @@ package com.ephraimglick.tenpercent.controllers;
 
 import com.ephraimglick.tenpercent.models.ToDo;
 import com.ephraimglick.tenpercent.models.ToDoUpdate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -11,14 +13,16 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-import static com.ephraimglick.tenpercent.constants.Constants.Uri.SLASH_TODOS;
-import static com.ephraimglick.tenpercent.constants.Constants.Uri.SLASH_TODOS_SLASH_TODO_ID;
+import static com.ephraimglick.tenpercent.constants.Constants.Uri.*;
 
 @RestController
 public class ToDoController implements ToDoApi {
     	WebClient webClient = WebClient.builder()
 		.defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 		.build();
+
+	@Autowired
+	private Environment env;
 
 	@GetMapping("")
 	public String home() {
@@ -51,5 +55,12 @@ public class ToDoController implements ToDoApi {
 	@GetMapping(SLASH_TODOS_SLASH_TODO_ID)
 	public ToDo getTodo(@PathVariable String todoId) {
 		return webClient.get().uri("https://jsonplaceholder.typicode.com/todos/" + todoId).retrieve().bodyToMono(ToDo.class).block();
+	}
+
+	@GetMapping(SLASH_SECRETS)
+	public String getSecrets() {
+		String PASSWORD = env.getProperty("PASSWORD");
+		String USERNAME = env.getProperty("USERNAME");
+		return "username: " + USERNAME + "; password: " + PASSWORD;
 	}
 }

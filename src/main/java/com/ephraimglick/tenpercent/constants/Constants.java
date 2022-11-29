@@ -7,6 +7,7 @@ public interface Constants {
         String SLASH_TODOS = "/todos";
         String SLASH_TODO_ID = "/{todoId}";
         String SLASH_TODOS_SLASH_TODO_ID = SLASH_TODOS + SLASH_TODO_ID;
+        String SLASH_SECRETS = "/secrets";
     }
 
 }
