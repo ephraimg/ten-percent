@@ -12,6 +12,8 @@ Or to run it on the default port that's set in `application.properties`:
 
 Build a Docker image:
 
+`mvn clean package`
+
 `docker build -t ephraimglick/ten-percent .`
 
 To push the Docker image, log in to Docker Hub from the command line. Then run `docker push ephraimglick/ten-percent`
