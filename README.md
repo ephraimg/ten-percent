@@ -10,6 +10,8 @@ Build a Docker image:
 
 `docker build -t ephraimglick/ten-percent .`
 
+To push the Docker image, log in to Docker Hub from the command line. Then run `docker push ephraimglick/ten-percent`
+
 Run the dockerized application at port 8099 (where 9000 is the port specified in `application.properties`:
 
 `docker run -p 8099:9000 ephraimglick/ten-percent`
