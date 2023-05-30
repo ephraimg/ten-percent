@@ -1,24 +1,24 @@
 package com.ephraimglick.tenpercent.models;
 
 public class ToDo {
-	Integer userId;
-	Integer id;
+	String userId;
+	String id;
 	String title;
 	Boolean completed;
 
-	public Integer getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Integer userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
