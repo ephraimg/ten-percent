@@ -1,4 +1,8 @@
-Run the application on port 8099:
+If necessary, set your Java version using (e.g.):
+
+`export JAVA_HOME='/usr/libexec/java_home -v 15'`.
+
+Run the application on (e.g.) port 8099:
 
 `mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=8099`
 
@@ -12,7 +16,7 @@ Build a Docker image:
 
 To push the Docker image, log in to Docker Hub from the command line. Then run `docker push ephraimglick/ten-percent`
 
-Run the dockerized application at port 8099 (where 9000 is the port specified in `application.properties`:
+Run the dockerized application at port 8099 (where 9000 is the port specified in `application.properties`):
 
 `docker run -p 8099:9000 ephraimglick/ten-percent`
 
